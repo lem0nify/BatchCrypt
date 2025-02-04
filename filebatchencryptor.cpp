@@ -48,7 +48,7 @@ void FileBatchEncryptor::processFile(QFile &inFile, QFile &outFile)
         {
             for (int i = 0; i < bytesRead; ++i) {
                 buf[i] ^= key[keyIdx++];
-                if (keyIdx >= key.size()) keyIdx = 1;
+                if (keyIdx >= key.size()) keyIdx = 0;
             }
             outFile.write(buf, bytesRead);
         }
